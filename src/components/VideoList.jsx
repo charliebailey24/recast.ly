@@ -1,5 +1,6 @@
 // Pass exampleVideoData into the VideoList component
 import exampleVideoData from '/src/data/exampleVideoData.js';
+import VideoListEntry from './VideoListEntry.js';
 // taking piece of data and making avaliable to use
 
 var VideoList = (props) => {
@@ -16,8 +17,10 @@ var VideoList = (props) => {
   const videoEntry = props.videos;
 
   // The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:
-  const videoList = videoEntry.map((video) =>
-    <h5 key={video.id.videoId}>{video.snippet.description}</h5>
+  console.log(videoEntry);
+  const videoList = videoEntry.map((entry) =>
+    // somehow inject videoListEntry here
+    <VideoListEntry video={entry}/>
   );
 
   return (<div>{videoList}</div>);
